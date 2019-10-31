@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import PropTypes from 'prop-types';
+import { Text } from 'react-native-elements';
 
 export default class ActionButtonItem extends Component {
 
@@ -20,6 +21,7 @@ export default class ActionButtonItem extends Component {
           opacity: this.props.anim,
           width: this.props.size,
           height: this.props.size,
+          bottom: 30,
           transform: [
             {
               translateY: this.props.anim.interpolate({
@@ -55,6 +57,24 @@ export default class ActionButtonItem extends Component {
           >
             {this.props.children}
           </View>
+          {this.props.buttonLabel && (
+            <Text
+              style={{
+                bottom: -25,
+                position: "absolute",
+                left: 0,
+                right: 0,
+                textAlign: "center",
+                fontFamily: "SFProText-Bold",
+                fontSize: 11,
+                color: "#FFFFFF",
+                opacity: 0.7,
+                letterSpacing: -0.1
+              }}
+            >
+              {this.props.buttonLabel}
+            </Text>
+          )}
         </TouchableOpacity>
       </Animated.View>
     );
